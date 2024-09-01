@@ -10,6 +10,9 @@ function setup() {
 
 function draw() {
   background(100);
+  orbitControl();
+  directionalLight(255, -1, 1, 0);
+  directionalLight(255, 0, 1, -1);
   ortho(-400, 400, 400, -400, 0, 2000);
 
   rotateY(ma);
@@ -24,7 +27,9 @@ function draw() {
       let h = floor(map(sin(a), -1, 1, 100, 300));
 
       translate(x - width / 2, 0, z - height / 2);
-      normalMaterial();
+      // normalMaterial();
+      specularMaterial(255);
+      shininess(50);
       box(w - 2, h, w - 2);
 
       pop();
